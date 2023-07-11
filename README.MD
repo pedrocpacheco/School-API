@@ -1,2 +1,2 @@
-# Scholl API
+# School API
 Project made with the knowledge I conquer in my studies
