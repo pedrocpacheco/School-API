@@ -26,7 +26,7 @@ public record StudentResquestDTO(
     String rm, 
     
     @NotNull
-    Interest Interest, 
+    Interest interest, 
     
     @NotNull
     @Valid

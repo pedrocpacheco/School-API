@@ -1,6 +1,7 @@
 package com.school.api.domain.student;
 
 import com.school.api.domain.adress.Adress;
+import com.school.api.domain.student.dto.StudentResquestDTO;
 
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -22,7 +23,17 @@ import lombok.Setter;
 @Entity
 @Table(name = "tb")
 public class Student {
-    
+
+    public Student(StudentResquestDTO data){
+        this.active = true;
+        this.name = data.name();
+        this.email = data.email();
+        this.phone = data.phone();
+        this.rm = data.rm();
+        this.interest = data.interest();
+        this.adress = new Adress(data.adress());
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -36,9 +47,11 @@ public class Student {
     private String rm;
 
     @Enumerated
-    private Interest Interest;
+    private Interest interest;
 
     @Embedded
     private Adress adress;
+
+    private Boolean active;
 
 }
